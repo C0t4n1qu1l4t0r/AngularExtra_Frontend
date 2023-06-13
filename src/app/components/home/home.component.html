@@ -10,7 +10,7 @@
         <li>Tipo conducción: {{coche.tipo_conduccion}}</li>
       </ul>
       <p>Precio por día: <strong>{{coche.precio_dia}} €</strong></p>
-      <a [routerLink]="'/reservar/' + coche.id" class="btn btn-success">Reservar este coche</a>
+      <a *ngIf="isSignedIn" [routerLink]="'/reservar/' + coche.id" class="btn btn-success">Reservar este coche</a>
     </div>
   </div>
 </div>

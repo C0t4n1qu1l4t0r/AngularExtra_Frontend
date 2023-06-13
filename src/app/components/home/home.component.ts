@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthStateService } from 'src/app/shared/auth-state.service';
 import { CochesService } from 'src/app/shared/coches.service';
 
 @Component({
@@ -9,11 +10,18 @@ import { CochesService } from 'src/app/shared/coches.service';
 })
 export class HomeComponent {
   coches! : any[];
-  constructor (private CocheService : CochesService , private router : Router) {
+  isSignedIn!: boolean;
+  constructor (private CocheService : CochesService , private router : Router, private auth: AuthStateService) {
     this.CocheService.getCoches().subscribe((data: any) => {
       this.coches = data;
       console.log(this.coches);
 
+    });
+  }
+
+  ngOnInit() {
+    this.auth.userAuthState.subscribe((val) => {
+      this.isSignedIn = val;
     });
   }
 
