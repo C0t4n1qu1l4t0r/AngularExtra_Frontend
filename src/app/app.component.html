@@ -1,0 +1,13 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">
+  <a routerLink="/home" class="text-decoration-none"><h5 class="my-0 mr-md-auto font-weight-normal text-dark"> Alquiler de Coches </h5></a>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" routerLink="/profile" *ngIf="isSignedIn">Información del Usuario</a>
+    <a class="p-2 text-dark" *ngIf="!isSignedIn" routerLink="/login">Iniciar Sesión</a>
+    <a class="p-2 text-dark" *ngIf="!isSignedIn" routerLink="/register">Registrarse</a>
+  </nav>
+  <button class="btn btn-outline-primary" (click)="signOut()" *ngIf="isSignedIn">Cerrar Sesión</button>
+</div>
+<div class="p-5">
+  <router-outlet></router-outlet>
+</div>
+

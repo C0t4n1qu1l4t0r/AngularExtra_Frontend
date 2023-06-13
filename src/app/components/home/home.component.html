@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row">
+    <div *ngFor="let coche of coches" class="col-6 p-5">
+      <h2>{{coche.tipo}}</h2>
+      <p>{{coche.descripcion}}</p>
+      <ul>
+        <li>Especificaciones:</li>
+        <li>Nº puertas: {{coche.puertas}}</li>
+        <li>Nº asientos: {{coche.asientos}}</li>
+        <li>Tipo conducción: {{coche.tipo_conduccion}}</li>
+      </ul>
+      <p>Precio por día: <strong>{{coche.precio_dia}} €</strong></p>
+      <a [routerLink]="'/reservar/' + coche.id" class="btn btn-success">Reservar este coche</a>
+    </div>
+  </div>
+</div>

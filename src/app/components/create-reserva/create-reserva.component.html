@@ -1,0 +1,20 @@
+<div class="container mt-5">
+  <h2 class="text-center">Crear Reserva</h2>
+  <form action="post" (ngSubmit)="reservar()">
+    <div class="form-group d-flex flex-column">
+
+      <p>Estás reservando el <strong>{{coche.descripcion}}</strong></p>
+
+      <label for="fecha_inicio">Fecha Inicio</label>
+      <input type="date" name="fecha_inicio" id="fecha_inicio" [(ngModel)] ="reserva.fecha_inicio">
+
+      <label for="fecha_fin">Fecha Fin</label>
+      <input type="date" name="fecha_fin" id="fecha_fin" [(ngModel)]="reserva.fecha_fin">
+
+      <label for="precio_total">Precio total</label>
+      <input type="number" name="precio_total" id="precio_total" [(ngModel)]="reserva.precio_total">
+
+      <button class="btn btn-primary">Reservar</button>
+    </div>
+  </form>
+</div>
